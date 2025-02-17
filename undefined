@@ -1,0 +1,22 @@
+```scala
+class MyClass {
+  private var internalValue: Int = 0
+
+  def value: Int = internalValue
+  def value_=(newValue: Int): Unit = {
+    if (newValue < 0) {
+      internalValue = 0 // Handle negative values gracefully.
+      println("Warning: Negative value assigned. Setting value to 0.")
+    } else {
+      internalValue = newValue
+    }
+  }
+}
+
+val myObject = new MyClass()
+myObject.value = 10
+println(myObject.value) // Output: 10
+
+myObject.value = -5 //No exception
+println(myObject.value) // Output: 0
+```
